@@ -68,9 +68,9 @@ jumpTicker.add(function(delta){
   if (up){
     if(doggo.y <= app.renderer.height-(134+96)){
       up = false;
-      doggo.y += 8;
+      doggo.y += 4*delta;
     } else {
-      doggo.y -= 12;
+      doggo.y -= 6*delta;
     }
   } else {
     if (doggo.y >= app.renderer.height-128){
@@ -78,8 +78,10 @@ jumpTicker.add(function(delta){
       doggo.play();
       jumping = false;
       jumpTicker.stop();
-    } else {
-      doggo.y += 8;
+    } else if((doggo.y+4*delta) >= app.renderer.height-128){
+      doggo.y += app.renderer.height-doggo.y;
+    }else{
+      doggo.y += 4*delta;
     }
   }
 });
@@ -89,7 +91,7 @@ function jump(){
   doggo.stop();
   jumping = true;
   up = true;
-  doggo.y -= 12;
+  doggo.y -= 6*crateTicker.deltaTime;
   jumpTicker.start();
 }
 
@@ -109,17 +111,22 @@ var crateTicker = new PIXI.ticker.Ticker();
 
 crateTicker.stop();
 crateTicker.add(function(delta){
-  speed = Math.floor(score/1000)*2;
+  speed = Math.floor(score/500);
   scoreDisplay.text = score;
   scoreDisplay.x = app.renderer.width-scoreDisplay.width-5;
   
-  obstacles[0].x -= obstacles[0].x>-32 ? 10+speed: -(Math.max.apply(null, obstacles.map(i => i.x))+Math.floor((Math.random()*500)+250));
+  obstacles[0].x -= obstacles[0].x>-32 ? (5+speed)*delta: -(Math.max.apply(null, obstacles.map(i => i.x))+Math.floor((Math.random()*500)+250));
   for (i = 1; i < obstacles.length; i++){
-    obstacles[i].x -= obstacles[i].x>-32 ? 10+speed: -(Math.max.apply(null, obstacles.map(i => i.x))+Math.floor((Math.random()*500)+250));
+    obstacles[i].x -= obstacles[i].x>-32 ? (5+speed)*delta: -(Math.max.apply(null, obstacles.map(i => i.x))+Math.floor((Math.random()*500)+250));
   }
   
-  groundSprites.forEach(sprite =>{
-    sprite.x -= sprite.x>-64 ? 10+speed: -(app.renderer.width+64);
+  groundSprites.forEach((sprite, index) =>{
+
+    if (index === 0){
+      sprite.x = sprite.x>-64 ? sprite.x-(5+speed)*delta: groundSprites[groundSprites.length-1].x+64-(5+speed)*delta;
+    } else {
+      sprite.x = sprite.x>-64 ? sprite.x-(5+speed)*delta: groundSprites[index-1].x+64;    
+    }
   });
   
   obstacles.forEach(obstacle => {
