@@ -148,7 +148,6 @@ function pause(func){
   playbutton.y = app.renderer.height/2;
   playbutton.interactive = true;
   app.stage.addChild(playbutton);
-  console.log(playbutton);
   playbutton.click = function(){
     crateTicker.start();
     doggo.play();
@@ -207,7 +206,6 @@ playbutton.x = app.renderer.width/2;
 playbutton.y = app.renderer.height/2;
 playbutton.interactive = true;
 app.stage.addChild(playbutton);
-console.log(playbutton);
 playbutton.click = function(){
   crateTicker.start();
   doggo.play();
