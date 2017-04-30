@@ -68,9 +68,9 @@ jumpTicker.add(function(delta){
   if (up){
     if(doggo.y <= app.renderer.height-(134+96)){
       up = false;
-      doggo.y += 4*delta;
+      doggo.y += 5*delta;
     } else {
-      doggo.y -= 6*delta;
+      doggo.y -= 5*delta;
     }
   } else {
     if (doggo.y >= app.renderer.height-128){
@@ -78,10 +78,10 @@ jumpTicker.add(function(delta){
       doggo.play();
       jumping = false;
       jumpTicker.stop();
-    } else if((doggo.y+4*delta) >= app.renderer.height-128){
+    } else if((doggo.y+10*delta) >= app.renderer.height-128){
       doggo.y += app.renderer.height-doggo.y;
     }else{
-      doggo.y += 4*delta;
+      doggo.y += 5*delta;
     }
   }
 });
@@ -91,7 +91,7 @@ function jump(){
   doggo.stop();
   jumping = true;
   up = true;
-  doggo.y -= 6*crateTicker.deltaTime;
+  doggo.y -= 10*crateTicker.deltaTime;
   jumpTicker.start();
 }
 
@@ -112,12 +112,13 @@ var crateTicker = new PIXI.ticker.Ticker();
 crateTicker.stop();
 crateTicker.add(function(delta){
   speed = Math.floor(score/500);
+  doggo.animationSpeed = 0.2+(speed/10);
   scoreDisplay.text = score;
   scoreDisplay.x = app.renderer.width-scoreDisplay.width-5;
   
-  obstacles[0].x -= obstacles[0].x>-32 ? (5+speed)*delta: -(Math.max.apply(null, obstacles.map(i => i.x))+Math.floor((Math.random()*500)+250));
+  obstacles[0].x -= obstacles[0].x>-32 ? (5+speed)*delta: -(Math.max.apply(null, obstacles.map(i => i.x))+Math.floor((Math.random()*500)+250+speed*50));
   for (i = 1; i < obstacles.length; i++){
-    obstacles[i].x -= obstacles[i].x>-32 ? (5+speed)*delta: -(Math.max.apply(null, obstacles.map(i => i.x))+Math.floor((Math.random()*500)+250));
+    obstacles[i].x -= obstacles[i].x>-32 ? (5+speed)*delta: -(Math.max.apply(null, obstacles.map(i => i.x))+Math.floor((Math.random()*500)+250+speed*50));
   }
   
   groundSprites.forEach((sprite, index) =>{
