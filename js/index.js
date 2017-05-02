@@ -23,7 +23,7 @@ for (var i = 0; i <= (Math.floor(app.renderer.width/64))+2; i++){
 var obstacles = [];
 
 var obstacle = PIXI.Sprite.fromImage(githubAddr+"crate.png");
-obstacle.x = app.renderer.width+1024;
+obstacle.x = app.renderer.width+128;
 obstacle.y = app.renderer.height-96;
 app.stage.addChild(obstacle);
 obstacles.push(obstacle);
@@ -95,7 +95,7 @@ function jump(){
   jumpTicker.start();
 }
 
-var score = 100000;
+var score = 0;
 
 var scoreFont = new PIXI.TextStyle({
   fontFamily: "VT323",
@@ -184,12 +184,12 @@ function reset(){
   up = false;
   
   obstacles.forEach((item, index)=>{
-    if (index ===0){item.x=app.renderer.width+1024;}
+    if (index ===0){item.x=app.renderer.width+128;}
     else {
       item.x = obstacles[index-1].x+Math.floor((Math.random()*500)+200);
     }
   });
-  score = 100000;
+  score = 0;
 }
 
 var titleFont = new PIXI.TextStyle({
