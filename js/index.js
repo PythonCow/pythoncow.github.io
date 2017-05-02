@@ -95,7 +95,7 @@ function jump(){
   jumpTicker.start();
 }
 
-var score = 10000;
+var score = 100000;
 
 var scoreFont = new PIXI.TextStyle({
   fontFamily: "VT323",
@@ -189,7 +189,7 @@ function reset(){
       item.x = obstacles[index-1].x+Math.floor((Math.random()*500)+200);
     }
   });
-  score = 10000;
+  score = 100000;
 }
 
 var titleFont = new PIXI.TextStyle({
