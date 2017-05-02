@@ -23,7 +23,7 @@ for (var i = 0; i <= (Math.floor(app.renderer.width/64))+2; i++){
 var obstacles = [];
 
 var obstacle = PIXI.Sprite.fromImage(githubAddr+"crate.png");
-obstacle.x = app.renderer.width+128;
+obstacle.x = app.renderer.width+1024;
 obstacle.y = app.renderer.height-96;
 app.stage.addChild(obstacle);
 obstacles.push(obstacle);
