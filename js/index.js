@@ -4,16 +4,16 @@ WebFont.load({
   }
 });
 
-var app = new PIXI.Application(800, 600, {backgroundColor: 0x87CEEB});
+var app = new PIXI.Application(window.innerWidth-25, window.innerHeight-25, {backgroundColor: 0x87CEEB});
 document.body.appendChild(app.view);
 
-var githubAddr = "https://raw.githubusercontent.com/PythonCow/Codepen-assets/master/assets/";
+var assetsAddr = "assets/";
 
-var playbutton = PIXI.Sprite.fromImage(githubAddr+"playbutton.png");
+var playbutton = PIXI.Sprite.fromImage(assetsAddr+"playbutton.png");
 
 var groundSprites = [];
 for (var i = 0; i <= (Math.floor(app.renderer.width/64))+2; i++){
-  var newGroundSprite = PIXI.Sprite.fromImage(githubAddr+"ground.png");
+  var newGroundSprite = PIXI.Sprite.fromImage(assetsAddr+"ground.png");
   newGroundSprite.y = app.renderer.height-64;
   newGroundSprite.x = i*64;
   app.stage.addChild(newGroundSprite);
@@ -22,21 +22,21 @@ for (var i = 0; i <= (Math.floor(app.renderer.width/64))+2; i++){
 
 var obstacles = [];
 
-var obstacle = PIXI.Sprite.fromImage(githubAddr+"crate.png");
+var obstacle = PIXI.Sprite.fromImage(assetsAddr+"crate.png");
 obstacle.x = app.renderer.width+128;
 obstacle.y = app.renderer.height-96;
 app.stage.addChild(obstacle);
 obstacles.push(obstacle);
 
 for (var i = 1; i < 5; i++){
-  obstacle = PIXI.Sprite.fromImage(githubAddr+"crate.png");
+  obstacle = PIXI.Sprite.fromImage(assetsAddr+"crate.png");
   obstacle.x = (obstacles[i-1].x)+Math.floor((Math.random()*500)+200);
   obstacle.y = app.renderer.height-96;
   app.stage.addChild(obstacle);
   obstacles.push(obstacle);
 }
 
-var doggoImages = ["0.png", "1.png", "2.png", "3.png"].map(val => githubAddr+"doggo"+val);
+var doggoImages = ["0.png", "1.png", "2.png", "3.png"].map(val => assetsAddr+"doggo"+val);
 var textures = [];
 doggoImages.forEach(image => {
   let texture = PIXI.Texture.fromImage(image);
@@ -148,7 +148,7 @@ function enableJump(){
 
 var spaceKey = function(){
   playbutton.click();
-}
+};
 
 function pause(func){
   playbutton.anchor.set(0.5)
