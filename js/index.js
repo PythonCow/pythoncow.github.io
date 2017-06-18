@@ -184,7 +184,7 @@ function reset(){
   up = false;
   
   obstacles.forEach((item, index)=>{
-    if (index ===0){item.x=app.renderer.width+32;}
+    if (index ===0){item.x=app.renderer.width+128;}
     else {
       item.x = obstacles[index-1].x+Math.floor((Math.random()*500)+200);
     }
