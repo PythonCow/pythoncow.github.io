@@ -4,7 +4,7 @@ WebFont.load({
   }
 });
 
-var app = new PIXI.Application(window.innerWidth-25, window.innerHeight-25, {backgroundColor: 0x87CEEB});
+var app = new PIXI.Application(window.innerWidth, window.innerHeight, {backgroundColor: 0x87CEEB});
 document.body.appendChild(app.view);
 
 var assetsAddr = "assets/";
