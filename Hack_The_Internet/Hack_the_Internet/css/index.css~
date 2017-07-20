@@ -1,0 +1,54 @@
+
+#number-stream {
+  border-right-color: green;
+  border-right: solid;
+  border-right-width: 1px;
+}
+
+#code {
+  border-bottom: solid;
+  border-bottom-color: green;
+  border-bottom-width: 1px;
+}
+
+html, body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.half-width {
+  font-family: "monospace";
+  font-size: 12px;
+  color: green;
+  width: 49.95%;
+  height: 100%;
+  clear: none;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.half-height {
+  width: 100%;
+  height: 49.5%;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  cursor: none;
+}

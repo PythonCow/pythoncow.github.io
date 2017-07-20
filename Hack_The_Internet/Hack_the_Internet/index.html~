@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+
+<link rel="stylesheet" href="css/index.css">
+
+<body>
+  <div id="number-stream" class="half-width">
+    <p id="number-stream-text"></p>  
+  </div>
+  <div class="half-width">
+    <div id="code" class="half-height">
+      <p id="code-text"></p>    
+    </div>
+    <div id="notifs" class="half-height">
+      <p id="notifs-text"></p>    
+    </div>
+  </div>
+</body>
+
+<script src="js/index.js"></script>
