@@ -1,6 +1,9 @@
+
 WebFont.load({
   google: {
     families: ['VT323']
+  },
+  active: function(){
   }
 });
 
