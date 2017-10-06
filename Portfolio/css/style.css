@@ -1,0 +1,70 @@
+
+* {
+  font-family: "Raleway", sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+#header {
+  height: 300px;
+  overflow: hidden;
+  color: white;
+}
+
+#header img {
+  position: absolute;
+  clip: rect(0px, 100vw, 300px, 0px);
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  min-height: 100%;
+  z-index: -1;
+}
+
+#header h1 {
+  margin-top: 100px;
+}
+
+.navbar {
+  background-color: #3232FF;
+  color: white;
+  z-index: 2;
+}
+
+.navbar a {
+  color: white;
+}
+
+.navbar a:hover {
+  color: black;
+}
+
+.navbar .btn-outline-secondary {
+  border-color: white;
+  color: white;
+}
+
+.navbar .btn-group {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#description {
+  padding-top: 10px;
+}
+
+#self-photo {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.card {
+  margin-top: 10px;
+  padding: 10px;
+}

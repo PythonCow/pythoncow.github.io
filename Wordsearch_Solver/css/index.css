@@ -1,0 +1,19 @@
+#text-from-image {
+  font-family: "PT Mono", monospace;
+}
+
+#search-results {
+  width: 100%;
+  height: auto;
+}
+
+line {
+  stroke: rgba(255, 255, 0, 0.5);
+  fill: rgba(255, 255, 0, 0.5);
+}
+
+#image-overlay {
+  position: absolute;
+  width: 100%;
+  height: auto;
+}
