@@ -1,0 +1,20 @@
+
+#calculator {
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 10px;
+}
+
+#buttons {
+  padding-top: 20px;
+  padding-bottom:20px;
+}
+
+#calculator-disp {
+  height: 75px;
+}
+
+#calculator-text {
+  text-align: right;
+}
